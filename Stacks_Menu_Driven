@@ -4,74 +4,74 @@
 int stack[50], top = -1, data, max = 3;
 void push()
 {
-	if (top == max - 1)
-	{
-		printf("stack is full\n");
-	}
-	else
-	{
-		printf("enter element \n");
-		scanf("%d", &data);
-		top = top + 1;
-		stack[top] = data;
-	}
+  if (top == max - 1)
+  {
+    printf("stack is full\n");
+  }
+  else
+  {
+    printf("enter element \n");
+    scanf("%d", &data);
+    top = top + 1;
+    stack[top] = data;
+  }
 }
 int pop()
 {
-	if (top == -1)
-	{
-		printf("stack is empty\n");
-	}
-	else
-	{
-		int popped_item = stack[top];
-		int top = top - 1;
-		return popped_item;
-	}
+  if (top == -1)
+  {
+    printf("stack is empty\n");
+  }
+  else
+  {
+    int popped_item = stack[top];
+    int top = top - 1;
+    return popped_item;
+  }
 }
 
 void display()
 {
-	int i;
-	for (i = top; i >= 0; i--)
-	{
-		printf("element stored in stack are : %d\n", stack[i]);
-	}
+  int i;
+  for (i = top; i >= 0; i--)
+  {
+    printf("element stored in stack are : %d\n", stack[i]);
+  }
 }
 void main()
 {
 
-	int a, choice;
-	char ans = 'y';
-	clrscr();
+  int a, choice;
+  char ans = 'y';
+  clrscr();
 
-	while (ans == 'y' || ans == 'Y')
-	{
-		printf("\n menu :\n 1.push \n 2.pop \n 3.dsiplay\n 4.exit\n enter choice\n");
-		scanf("%d", &choice);
-		switch (choice)
-		{
-			case 1:
-				push();
-				break;
+  while (ans == 'y' || ans == 'Y')
+  {
+    printf("\n menu :\n 1.push \n 2.pop \n 3.dsiplay\n 4.exit\n enter choice\n");
+    scanf("%d", &choice);
+    switch (choice)
+    {
+      case 1:
+        push();
+        break;
 
-			case 2:
-				a = pop();
-				printf("%d", a);
-				break;
+      case 2:
+        a = pop();
+        printf("%d", a);
+        break;
 
-			case 3:
-				display();
-				break;
+      case 3:
+        display();
+        break;
 
-			case 4:
-				break;
+      case 4:
+        break;
 
-			default:
-				printf("invalid input\n");
-		}
-		printf("press y/Y to continue");
-		ans = getch();
-	}
-	getch();
+      default:
+        printf("invalid input\n");
+    }
+    printf("press y/Y to continue");
+    ans = getch();
+  }
+  getch();
 }
