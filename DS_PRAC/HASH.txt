@@ -1,0 +1,57 @@
+#include <stdio.h>
+#define size 10
+int arr[size];
+void init()
+{
+    int i;
+    for (i = 0; i < size; i++)
+        arr[i] = -1;
+}
+void insert(int value)
+{
+    int key = value % size;
+    if (arr[key] == -1)
+    {
+        arr[key] = value;
+        printf("%d inserted at arr[%d]\n", value, key);
+    }
+    else
+    {
+        printf("Collision : arr[%d] has element %d already!\n", key, arr[key]);
+        printf("Unable to insert %d\n", value);
+    }
+}
+void del(int value)
+{
+    int key = value % size;
+    if (arr[key] == value)
+        arr[key] = -1;
+    else
+        printf("%d not present in the hash table\n", value);
+}
+void search(int value)
+{
+    int key = value % size;
+    if (arr[key] == value)
+        printf("Search Found\n");
+    else
+        printf("Search Not Found\n");
+}
+void print()
+{
+    int i;
+    printf("\n Hash Table:\n");
+    for (i = 0; i < size; i++)
+        printf("|%d:%d", i, arr[i]);
+    printf("|\n");
+}
+int main()
+{
+    init();
+    insert(10);
+    insert(5);
+    printf("Hash table\n");
+    print();
+    printf("\n");
+    return 0;
+}
